@@ -4,16 +4,18 @@
 
 var qiniu = require('qiniu');
 
+var logger = require('./log4jsCfg').logger("main");
+
+logger.info("开始进行七牛云存储清理工作");
 
 var bucketName = "crm-iappk-com";
 qiniu.conf.ACCESS_KEY = '8cFDsP74lYGBD63SqewX3FWYC4gxt-UYhIgU1JEV';
 qiniu.conf.SECRET_KEY = '2DAxlV-TnI17Kqq2NttbNpZMdoOT-JiuwmITJNHC';
 
-
 var prefix = "download";
 
 //前7天的time
-var v_checkTime = new Date().getTime() - 1000 * 60 * 60 * 24 * 3.7;
+var v_checkTime = new Date().getTime() - 1000 * 60 * 60 * 24 * 7;
 
 
 var client = new qiniu.rs.Client();
@@ -40,7 +42,7 @@ function f_list(v_marker) {
 
                     var v_file = ret.items[idx];
 
-                    //判断系统时间<7天，则删除
+                    //判断系统时间<设定时间，则删除
                     if (v_file.putTime / 10000 < v_checkTime) {
                         v_fileEntries.push(new qiniu.rs.EntryPath(bucketName, v_file.key));
                     }
@@ -61,6 +63,8 @@ function f_remove(v_fileEntries) {
 
     if (v_fileEntries && v_fileEntries.length > 0) {
 
+        logger.info('删除处理结束:');
+        logger.info(v_fileEntries);
 
         client.batchDelete(v_fileEntries, function (err, ret) {
             if (!err) {
@@ -73,8 +77,6 @@ function f_remove(v_fileEntries) {
                 console.log(err);
             }
 
-            console.log('删除处理结束:');
-            console.log(v_fileEntries);
         });
     }
 
