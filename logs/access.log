@@ -1,0 +1,15 @@
+[2014-06-20 16:48:40.297] [INFO] main - 本次查询个数:61...游标值:undefined
+[2014-06-20 16:48:40.298] [INFO] main - 上个游标值:eyJjIjowLCJrIjoiZG93bmxvYWQvZjg1MzE4MTktOTA2NS00NTVlLTlmMmYtOGZkY2ZhNmVmNmRkLmlwYSJ9
+[2014-06-20 16:50:24.560] [INFO] main - 开始进行七牛云存储清理工作
+[2014-06-20 16:50:25.967] [INFO] main - 删除处理结束:
+[2014-06-20 16:50:25.967] [INFO] main - [ { bucket: 'crm-iappk-com',
+    key: 'download/6398f7c0-eb7c-4d6a-b80f-3c910adb4617.apk' } ]
+[2014-06-20 16:50:27.262] [INFO] main - 删除处理结束:
+[2014-06-20 16:50:27.262] [INFO] main - [ { bucket: 'crm-iappk-com',
+    key: 'download/8d8249ed-f1a3-445a-a2b2-fc62aca2a5e9.apk' },
+  { bucket: 'crm-iappk-com',
+    key: 'download/9c01057a-e63b-4e0f-918b-0538394d2026.apk' },
+  { bucket: 'crm-iappk-com',
+    key: 'download/c3bd8d2a-8a80-4f02-83df-1b4878fec535.apk' },
+  { bucket: 'crm-iappk-com',
+    key: 'download/eca20bad-0f8f-456a-9c60-a5ec9d5a6005.apk' } ]
