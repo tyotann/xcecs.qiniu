@@ -15,7 +15,7 @@ qiniu.conf.SECRET_KEY = '2DAxlV-TnI17Kqq2NttbNpZMdoOT-JiuwmITJNHC';
 var prefix = "download";
 
 //前7天的time
-var v_checkTime = new Date().getTime() - 1000 * 60 * 60 * 24 * 7;
+var v_checkTime = new Date().getTime() - 1000 * 60 * 60 * 24 * 1;
 
 
 var client = new qiniu.rs.Client();
